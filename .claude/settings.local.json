@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//mnt/e/projects/AI/E11/**)",
+      "Bash(ls:*)",
+      "Bash(uv init:*)",
+      "Bash(uv add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
