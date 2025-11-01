@@ -47,6 +47,12 @@ This document summarizes the key interactions, decisions, and development steps 
 - **Action:** Created `DECISIONS.md` to document key architectural and implementation choices.
 - **Action:** Created `TODO.md` outlining remaining tasks and future enhancements.
 
+### 8. Discussion on K-Means Decision Boundaries
+- **User Question:** Observed straight-line decision boundaries in K-Means and inquired if curved boundaries are possible.
+- **Action:** Provided an explanation of why K-Means produces straight-line (Voronoi) boundaries and introduced alternative algorithms (DBSCAN, Spectral Clustering, Kernel K-Means) for curved boundaries.
+- **Action:** Updated `README.md` with a new section explaining K-Means decision boundaries.
+- **Action:** Updated `TODO.md` to include a task for considering alternative clustering algorithms.
+
 ### 7. Final Documentation Update
 - **User Request:** Update all documents, including the one showing planned and implemented tasks.
 - **Action:** Reviewed and updated `TODO.md` to mark completed tasks and reorganize remaining items.

@@ -26,7 +26,7 @@ This document lists remaining tasks, potential improvements, and future consider
 
 ### Future Features
 - [ ] **Export Functionality:** Add options to save generated data, clustering results, or visualizations.
-- [ ] **Support for Other Algorithms:** Extend the application to include other clustering algorithms (e.g., DBSCAN, Agglomerative Clustering).
+- [ ] **Support for Other Algorithms:** Extend the application to include other clustering algorithms (e.g., DBSCAN, Agglomerative Clustering, Spectral Clustering, Kernel K-Means) to explore different types of decision boundaries (e.g., curved).
 - [ ] **Dataset Loading:** Allow users to load their own datasets.
 - [ ] **Advanced Visualization:** Implement more advanced visualization techniques, such as 3D plots or animations.
 - [ ] **Robust Error Handling:** Add more comprehensive error handling for user inputs and unexpected conditions.

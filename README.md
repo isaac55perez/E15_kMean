@@ -15,15 +15,29 @@ This project implements an interactive K-Means clustering application. It allows
 
 ## Screenshots
 
-Below are some example outputs from the application.
-
-**Generated Data Plot:**
-
-![Generated Data Plot](generated_data_plot.png)
+Below is an example output from the application.
 
 **K-Means Clustering Plot:**
 
 ![K-Means Clustering Plot](kmeans_clustering_plot.png)
+
+## Understanding K-Means Decision Boundaries
+
+An interesting observation in K-Means clustering is that the decision boundaries between clusters are always straight lines (or flat hyperplanes in higher dimensions). This is a fundamental characteristic of the algorithm.
+
+**Why are the boundaries straight?**
+
+K-Means assigns each data point to the cluster whose centroid is closest. The boundary between any two clusters (say, Cluster 1 and Cluster 2) is formed by all points that are equidistant from the centroid of Cluster 1 and the centroid of Cluster 2. In Euclidean space, the locus of points equidistant from two fixed points is the perpendicular bisector of the line segment connecting those two points. This perpendicular bisector is always a straight line.
+
+When you have more than two clusters, the decision regions (called Voronoi cells) are formed by the intersection of multiple such straight-line boundaries, resulting in convex polygonal regions.
+
+**What about curved boundaries?**
+
+If your data naturally forms clusters with curved or non-linear boundaries, standard K-Means may not perform optimally. To find such clusters, other algorithms are more suitable, such as:
+
+*   **DBSCAN (Density-Based Spatial Clustering of Applications with Noise):** Can discover clusters of arbitrary shape based on data point density.
+*   **Spectral Clustering:** Uses graph theory to partition data points, often effective for non-convex clusters.
+*   **Kernel K-Means:** A variant of K-Means that uses the "kernel trick" to implicitly map data into a higher-dimensional space, allowing it to find non-linear boundaries in the original feature space.
 
 ## Installation
 
@@ -79,7 +93,6 @@ E15_kMean/
 ├── TODO.md                 # List of remaining tasks and future enhancements
 ├── CHAT.md                 # Summary of AI-assisted development conversation
 ├── COSTS.md                # Placeholder for token usage and cost tracking
-└── generated_data_plot.png # Example output of data_generator.py
 └── kmeans_clustering_plot.png # Example output of kmeans_model.py
 ```
 
