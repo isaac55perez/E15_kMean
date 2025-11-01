@@ -1,5 +1,25 @@
 import numpy as np
 from sklearn.cluster import KMeans
+from sklearn.metrics import confusion_matrix
+from scipy.optimize import linear_sum_assignment
+
+def calculate_accuracy(true_labels, predicted_labels):
+    """
+    Calculates the classification accuracy by finding the optimal mapping
+    between true and predicted labels.
+
+    Args:
+        true_labels (np.ndarray): The ground truth labels.
+        predicted_labels (np.ndarray): The predicted cluster labels.
+
+    Returns:
+        float: The classification accuracy as a percentage.
+    """
+    cm = confusion_matrix(true_labels, predicted_labels)
+    # Use the Hungarian algorithm to find the optimal assignment between true and predicted labels
+    row_ind, col_ind = linear_sum_assignment(cm, maximize=True)
+    accuracy = cm[row_ind, col_ind].sum() / cm.sum() * 100
+    return accuracy
 
 def perform_kmeans(data, n_clusters, random_state=42):
     """

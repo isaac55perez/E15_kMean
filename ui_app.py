@@ -3,7 +3,7 @@ from matplotlib.widgets import Slider, Button, RadioButtons
 import numpy as np
 
 from data_generator import generate_data
-from kmeans_model import perform_kmeans
+from kmeans_model import perform_kmeans, calculate_accuracy
 
 class KMeansApp:
     def __init__(self):
@@ -14,6 +14,7 @@ class KMeansApp:
             'C': {'mean': [10, 20], 'std_dev': 2, 'color': 'blue'},
         }
         self.n_clusters = 3
+        self.accuracy = 0.0
 
         self.fig, (self.ax_plot, self.ax_controls) = plt.subplots(1, 2, figsize=(15, 7), gridspec_kw={'width_ratios': [3, 1]})
         self.ax_plot.set_title("K-Means Visualization")
@@ -32,6 +33,7 @@ class KMeansApp:
 
         self.setup_controls()
         self.update_plot()
+        self.compute_kmeans(None) # Calculate and display initial accuracy
 
     def setup_controls(self):
         # Sample Size Slider
@@ -117,6 +119,9 @@ class KMeansApp:
         self.compute_kmeans_button = Button(ax_compute_kmeans_button, 'Compute K-Means')
         self.compute_kmeans_button.on_clicked(self.compute_kmeans)
 
+        # Accuracy Display
+        self.accuracy_text = self.fig.text(control_panel_bbox.x0 + 0.02, control_panel_bbox.y1 - 0.85, "")
+
     def update_k_value(self, val):
         self.n_clusters = int(val)
 
@@ -124,8 +129,10 @@ class KMeansApp:
         import time
         start_time = time.time()
         self.kmeans_model, self.predicted_labels = perform_kmeans(self.data, self.n_clusters)
+        self.accuracy = calculate_accuracy(self.labels, self.predicted_labels)
         end_time = time.time()
         print(f"K-Means computation time: {end_time - start_time:.4f} seconds")
+        self.accuracy_text.set_text(f"Success Rate: {self.accuracy:.2f}%")
         self.update_sample_size(self.sample_size_slider.val) # Update plot with current sample size
 
 

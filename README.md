@@ -11,7 +11,19 @@ This project implements an interactive K-Means clustering application. It allows
 -   **Real-time Visualization:** Visualize the generated data, K-Means cluster regions (Voronoi-style), and cluster centroids.
 -   **Sample Size Control:** Adjust the percentage of data points displayed in the visualization without affecting the K-Means computation, which always runs on the full dataset.
 -   **Group Parameter Adjustment:** Interactively modify the mean and standard deviation of individual data groups.
--   **Performance Metrics:** Display K-Means computation time.
+-   **Performance Metrics:** Display K-Means computation time and classification accuracy.
+
+## Screenshots
+
+Below are some example outputs from the application.
+
+**Generated Data Plot:**
+
+![Generated Data Plot](generated_data_plot.png)
+
+**K-Means Clustering Plot:**
+
+![K-Means Clustering Plot](kmeans_clustering_plot.png)
 
 ## Installation
 
